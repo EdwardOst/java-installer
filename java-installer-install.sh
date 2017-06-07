@@ -19,7 +19,7 @@ function java_installer_install() {
     echo "JRE_HOME=/usr/bin/java_home/jre" | sudo tee -a /etc/environment
 
     # create profile.d file
-    sudo tee /etc/profile.d/jdk.sh <<-'EOF'
+    sudo tee "/etc/profile.d/jdk-${jdk_version}.sh" <<-'EOF'
 	JAVA_HOME="/usr/bin/java_home"
 	JRE_HOME="${JAVA_HOME}/jre"
 	export JAVA_HOME
