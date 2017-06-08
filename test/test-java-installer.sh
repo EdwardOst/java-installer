@@ -1,8 +1,8 @@
 set -e
-set -x
+#set -x
 
 source ../java-installer.sh
 
-#java_installer -h
+java_installer help
 #java_installer download
-java_installer install
+#java_installer install
