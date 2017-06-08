@@ -11,6 +11,9 @@ java_installer_script_dir="${java_installer_script_path%/*}"
 java_installer_util_path=$(readlink -e "${java_installer_script_dir}/util/util.sh")
 source "${java_installer_util_path}"
 
+java_installer_file_path=$(readlink -e "${java_installer_script_dir}/util/file-util.sh")
+source "${java_installer_file_path}"
+
 java_installer_parse_args_path=$(readlink -e "${java_installer_script_dir}/util/parse-args.sh")
 source "${java_installer_parse_args_path}"
 

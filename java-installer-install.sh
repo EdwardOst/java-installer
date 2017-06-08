@@ -1,6 +1,6 @@
 function java_installer_install() {
-    local repo_dir="${1:-${JAVA_INSTALLER_REPO_DIR:-${java_installer_repo_dir:-/opt/repo/java}}}"; debugVar repo_dir
-    local target_dir="${2:-${JAVA_INSTALLER_REPO_DIR:-${java_installer_target_dir:-/opt}}}"; debugVar target_dir
+    local repo_dir="${1:-${JAVA_INSTALLER_REPO_DIR:-${java_installer_repo_dir:-/opt/repo/java}}}"
+    local target_dir="${2:-${JAVA_INSTALLER_REPO_DIR:-${java_installer_target_dir:-/opt}}}"
     local jdk_filename_version="${JAVA_INSTALLER_JDK_FILENAME_VERSION:-${java_installer_jdk_filename_version}}"
     local jdk_version="${JAVA_INSTALLER_JDK_VERSION:-${java_installer_jdk_version}}"
 
