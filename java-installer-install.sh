@@ -1,8 +1,4 @@
 function java_installer_install() {
-    [[ ${#} < 1 ]] \
-        && echo "usage: java_installer_install [repo_dir [target_dir]]" >&2 \
-        && return 1
-
     local repo_dir="${1:-${JAVA_INSTALLER_REPO_DIR:-${java_installer_repo_dir:-/opt/repo/java}}}"
     local target_dir="${1:-${JAVA_INSTALLER_REPO_DIR:-${java_installer_target_dir:-/opt/repo/java}}}"
     local jdk_filename_version="${JAVA_INSTALLER_JDK_FILENAME_VERSION:-${java_installer_jdk_filename_version}}"
