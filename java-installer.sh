@@ -14,6 +14,9 @@ source "${java_installer_util_path}"
 java_installer_parse_args_path=$(readlink -e "${java_installer_script_dir}/util/parse-args.sh")
 source "${java_installer_parse_args_path}"
 
+java_installer_scope_context_path=$(readlink -e "${java_installer_script_dir}/util/scope-context.sh")
+source "${java_installer_scope_context_path}"
+
 java_installer_url_path=$(readlink -e "${java_installer_script_dir}/util/url.sh")
 source "${java_installer_url_path}"
 
