@@ -156,7 +156,7 @@ function java_installer() {
     shift "${optindex}"
     [ "${#java_installer_command[@]}" == 0 ] && java_installer_help && return 0
 
-    echo_scope
+    [ -n "${DEBUG_LOG}" ] && echo_scope
 
     "${java_installer_command[@]}"
 }
