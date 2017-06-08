@@ -27,8 +27,8 @@ java_installer_download_path=$(readlink -e "${java_installer_script_dir}/java-in
 source "${java_installer_download_path}"
 
 define java_installer_init <<'EOF'
-    local java_installer_repo_dir="${JAVA_INSTALLER_REPO_DIR:-${java_installer_repo_dir:-/opt/repo/java}}}"
-    local java_installer_target_dir="${JAVA_INSTALLER_REPO_DIR:-${java_installer_repo_dir:-/opt}}}"
+    local java_installer_repo_dir="${JAVA_INSTALLER_REPO_DIR:-${java_installer_repo_dir:-/opt/repo/java}}"
+    local java_installer_target_dir="${JAVA_INSTALLER_REPO_DIR:-${java_installer_repo_dir:-/opt}}"
     local java_installer_jdk_filename_version="${JAVA_INSTALLER_JDK_FILENAME_VERSION:-${java_installer_jdk_filename_version:-8u131}}"
     local java_installer_jdk_version="${JAVA_INSTALLER_JDK_VERSION:-${java_installer_jdk_version:-1.8.0_131}}"
     local java_installer_jdk_build="${JAVA_INSTALLER_JDK_BUILD:-${java_installer_jdk_build:-b11}}"
@@ -37,8 +37,8 @@ define java_installer_init <<'EOF'
 EOF
 
 declare -A java_installer_context=( \
-                                    [repo_dir]="${JAVA_INSTALLER_REPO_DIR:-${java_installer_repo_dir:-/opt/repo/java}}}" \
-                                    [target_dir]="${JAVA_INSTALLER_REPO_DIR:-${java_installer_repo_dir:-/opt}}}" \
+                                    [repo_dir]="${JAVA_INSTALLER_REPO_DIR:-${java_installer_repo_dir:-/opt/repo/java}}" \
+                                    [target_dir]="${JAVA_INSTALLER_REPO_DIR:-${java_installer_repo_dir:-/opt}}" \
                                     [jdk_filename_version]="${JAVA_INSTALLER_JDK_FILENAME_VERSION:-${java_installer_jdk_filename_version:-8u131}}" \
                                     [jdk_version]="${JAVA_INSTALLER_JDK_VERSION:-${java_installer_jdk_version:-1.8.0_131}}" \
                                     [jdk_build]="${JAVA_INSTALLER_JDK_BUILD:-${java_installer_jdk_build:-b11}}" \

@@ -1,9 +1,10 @@
 function java_installer_install() {
-    local repo_dir="${1:-${JAVA_INSTALLER_REPO_DIR:-${java_installer_repo_dir:-/opt/repo/java}}}"
-    local target_dir="${1:-${JAVA_INSTALLER_REPO_DIR:-${java_installer_target_dir:-/opt/repo/java}}}"
+    local repo_dir="${1:-${JAVA_INSTALLER_REPO_DIR:-${java_installer_repo_dir:-/opt/repo/java}}}"; debugVar repo_dir
+    local target_dir="${2:-${JAVA_INSTALLER_REPO_DIR:-${java_installer_target_dir:-/opt}}}"; debugVar target_dir
     local jdk_filename_version="${JAVA_INSTALLER_JDK_FILENAME_VERSION:-${java_installer_jdk_filename_version}}"
     local jdk_version="${JAVA_INSTALLER_JDK_VERSION:-${java_installer_jdk_version}}"
 
+    DEBUG_LOG=true
     debugLog "executing: ${FUNCNAME[0]} \"${repo_dir}\" \"${target_dir}\""
 
     # unzip
@@ -26,7 +27,7 @@ function java_installer_install() {
     sudo update-alternatives --install /usr/bin/java_home java_home "${target_dir}/jdk${jdk_version}" 999 \
         --slave /usr/bin/java java "${target_dir}/jdk${jdk_version}/bin/java" \
         --slave /usr/bin/javac javac "${target_dir}/jdk${jdk_version}/bin/javac" \
-        --slave /usr/bin/jar jar "${target_dir}/jdk${jdk_version}/bin/jar" \
+        --slave /usr/bin/jar jar "${target_dir}/jdk${jdk_version}/bin/jar"
 
     # select active alternative
     sudo update-alternatives --set java_home "${target_dir}/jdk${jdk_version}"
