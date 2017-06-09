@@ -51,7 +51,6 @@ declare -A java_installer_context=(
 source /dev/stdin <<<"${java_installer_init_context}"
 
 function java_installer_help() {
-    _help_flag=1
     cat <<-EOF
 	Install Java
 
@@ -60,36 +59,36 @@ function java_installer_help() {
 
 	    options:
 	        -h help
-                -c specify an alternate configuration
+                -c specify an alternate configuration as an associative array
 
-	commands:
+	subcommands:
 	    download
 	    install
 	    uninstall
 	    help
 
 	download:
-	    java-installer download [-v jdk_version] [-f jdk_filename_version] [-b jdk_build] [-g jdk_guid] [-r jdk_repo_dir]
+	    java-installer download [-v jdk_version] [-f jdk_filename_version] [-b jdk_build] [-g jdk_guid] [-r repo_dir]
 
 	    options:
 	        -v jdk_version="1.8.0_131"
 	        -f jdk_filename_version="8u131"
 	        -b jdk_build="b11"
 	        -g jdk_guid="d54c1d3a095b4ff2b6607d096fa80163"
-	        -r jdk_repo_dir="/opt/repo/java"
+	        -r repo_dir="/opt/repo/java"
 
 	install:
 	    java-installer install [-r repo_dir] [-t target_dir]
 
 	    options:
-	        -r jdk_repo_dir="/opt/repo/java"
-	        -t jdk_target_dir="/opt"
+	        -r repo_dir="/opt/repo/java"
+	        -t target_dir="/opt"
 
 	unistall:
 	    java-installer uninstall [-t target_dir]
 
 	    options:
-	        -t jdk_target_dir="/opt"
+	        -t target_dir="/opt"
 
 	EOF
 }
