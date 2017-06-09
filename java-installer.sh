@@ -31,7 +31,7 @@ source "${java_installer_download_path}"
 
 define java_installer_init <<'EOF'
     local java_installer_repo_dir="${JAVA_INSTALLER_REPO_DIR:-${java_installer_repo_dir:-/opt/repo/java}}"
-    local java_installer_target_dir="${JAVA_INSTALLER_REPO_DIR:-${java_installer_repo_dir:-/opt}}"
+    local java_installer_target_dir="${JAVA_INSTALLER_TARGET_DIR:-${java_installer_target_dir:-/opt}}"
     local java_installer_jdk_filename_version="${JAVA_INSTALLER_JDK_FILENAME_VERSION:-${java_installer_jdk_filename_version:-8u131}}"
     local java_installer_jdk_version="${JAVA_INSTALLER_JDK_VERSION:-${java_installer_jdk_version:-1.8.0_131}}"
     local java_installer_jdk_build="${JAVA_INSTALLER_JDK_BUILD:-${java_installer_jdk_build:-b11}}"
@@ -41,7 +41,7 @@ EOF
 
 declare -A java_installer_context=(
                                     [repo_dir]="${JAVA_INSTALLER_REPO_DIR:-${java_installer_repo_dir:-/opt/repo/java}}"
-                                    [target_dir]="${JAVA_INSTALLER_REPO_DIR:-${java_installer_repo_dir:-/opt}}"
+                                    [target_dir]="${JAVA_INSTALLER_TARGET_DIR:-${java_installer_target_dir:-/opt}}"
                                     [jdk_filename_version]="${JAVA_INSTALLER_JDK_FILENAME_VERSION:-${java_installer_jdk_filename_version:-8u131}}"
                                     [jdk_version]="${JAVA_INSTALLER_JDK_VERSION:-${java_installer_jdk_version:-1.8.0_131}}"
                                     [jdk_build]="${JAVA_INSTALLER_JDK_BUILD:-${java_installer_jdk_build:-b11}}"
@@ -103,12 +103,12 @@ function java_installer() {
                           ["--config"]="java_installer_config"
                           ["-g"]="java_installer_jdk_guid"
                           ["--guid"]="java_installer_jdk_guid"
-                          ["-r"]="java_installer_jdk_repo_dir"
-                          ["--repo_dir"]="java_installer_jdk_repo_dir"
-                          ["-t"]="jdk_target_dir"
-                          ["--target"]="jdk_target_dir"
+                          ["-r"]="java_installer_repo_dir"
+                          ["--repo_dir"]="java_installer_repo_dir"
+                          ["-t"]="java_installer_target_dir"
+                          ["--target"]="java_installer_target_dir"
                           ["-v"]="java_installer_jdk_version"
-                          ["--jdk_version"]="java_installer_jdk_version"
+                          ["--version"]="java_installer_jdk_version"
                          )
 
     declare -A java_installer_exec_options=(
@@ -130,15 +130,15 @@ function java_installer() {
                           ["--build"]="java_installer_jdk_build"
                           ["-g"]="java_installer_jdk_guid"
                           ["--guid"]="java_installer_jdk_guid"
-                          ["-r"]="java_installer_jdk_repo_dir"
-                          ["--repo_dir"]="java_installer_jdk_repo_dir"
-                          ["-t"]="jdk_target_dir"
-                          ["--target"]="jdk_target_dir"
+                          ["-r"]="java_installer_repo_dir"
+                          ["--repo_dir"]="java_installer_repo_dir"
+                          ["-t"]="java_installer_target_dir"
+                          ["--target"]="java_installer_target_dir"
                           ["-v"]="java_installer_jdk_version"
                           ["--jdk_version"]="java_installer_jdk_version"
                           ["download"]="Download java developers kit from Oracle to local file system"
                           ["install"]="Install jdk, initial update-alternatives,  and configure environment settings for JAVA_HOME and PATH"
-                          ["uninstall"]="Remove jdk, clear environent settings, and unset update-alternatives"
+                          ["uninstall"]="Remove jdk, clear environment settings, and unset update-alternatives"
                          )
 
     local optindex
