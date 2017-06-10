@@ -61,6 +61,10 @@ function java_installer_help() {
 	        -h help
                 -c specify an alternate configuration as an associative array
 
+	constraints:
+	    download requires file directory permissions
+            install requires root permissions to modify environment files
+
 	subcommands:
 	    download
 	    install
