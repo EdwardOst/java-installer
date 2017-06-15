@@ -124,6 +124,7 @@ function java_installer() {
 
     declare -A java_installer_subcommands=(
                                             ["download"]="java_installer_download"
+                                            ["download_local"]="java_installer_download_local"
                                             ["install"]="java_installer_install"
                                             ["uninstall"]="java_installer_uninstall"
                                             ["help"]="java_installer_help"
@@ -164,5 +165,7 @@ function java_installer() {
 
     [ -n "${DEBUG_LOG}" ] && echo_scope
 
-    "${java_installer_command[@]}"
+    DEBUG_LOG=true
+    debugLog "${java_installer_command[@]} ${@}"
+    "${java_installer_command[@]}" "${@}"
 }
