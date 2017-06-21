@@ -1,9 +1,11 @@
-set -e
-# set -x
-
 [ "${JAVA_INSTALLER_FLAG:-0}" -gt 0 ] && return 0
 
 export JAVA_INSTALLER_FLAG=1
+
+set -e
+# set -x
+
+
 
 java_installer_script_path=$(readlink -e "${BASH_SOURCE[0]}")
 java_installer_script_dir="${java_installer_script_path%/*}"
